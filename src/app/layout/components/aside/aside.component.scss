@@ -1,0 +1,96 @@
+.aside{
+    width: 230px;
+    background-color: #1E1E2D;
+    position: fixed;
+    top: 80px;
+    left: 50px;
+    bottom: 60px;
+    border-radius: 12px;
+    box-shadow: 0 0 45px 0 rgb(0 0 0 / 60%);
+    transition: .5s cubic-bezier(.685,.0473,.346,1);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .navigation{
+        // transform: translateY(130%);
+        .nav{
+            flex-direction: column;
+            padding: 10px 8px;
+            .nav-item{
+                padding: 4px 20px;
+                display: flex;
+                color: #92929f;
+                .nav-link{
+                    font-family: 'Poppins';
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: #92929f;
+                    .link-icon{
+                        margin-right: 10px;
+                        color: #92929f;
+                        svg{
+                            height: 1.5rem!important;
+                            width: 1.5rem!important;
+                        }
+                    }
+                }
+                .nav-link:hover, .active-tab, .active-tab .link-icon {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+    .toggle-btn{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .aside{
+        // position: unset;
+        width: 250px !important;
+        height: 100vh;
+        border-radius: 0px;
+
+        position: fixed;
+        display: block;
+        top: 0;
+        // height: 100%;
+        // width: 260px;
+        right: auto;
+        left: 0;
+        margin: 0;
+        z-index: 1032;
+        visibility: visible;
+        overflow-y: visible;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .toggle-btn{
+        display: block !important;
+        position: absolute;
+        top: 14px;
+        right: 15px;
+        padding: 3px 6px 5px 6px;
+        border-radius: 4px;
+        background: #2d2d48;
+        cursor: pointer;
+        .close-icon{
+            color: #565674;
+        }
+    }
+    .toggle-btn:hover{
+        .close-icon{
+            color: #009EF7;
+        }
+    }
+}
+
+::ng-deep .link-icon{
+    svg{
+        height: 1rem;
+    }
+}

@@ -1,0 +1,23 @@
+.footer{
+    background-color: #151521;
+    width:100%;
+    position: fixed;
+    bottom: 0px;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .copyright{
+        font-size: 15px;
+        font-weight: 600;
+        color: gray;
+    }
+    .name{
+        color:#7367f0;
+        font-weight: 700;
+        a{
+            color: unset;
+            text-decoration: none;
+        }
+    }
+}

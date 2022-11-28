@@ -1,0 +1,27 @@
+.header{
+    background-color: #151521;
+    width:100%;
+    position: fixed;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    .sidebar-toggle{
+        display: none;
+        .menu-icon{
+            color: #565674;
+        }
+        .menu-icon:hover{
+            color: #009EF7;
+        }
+    }
+}
+
+@media screen and (max-width: 992px){
+    .header{
+        display: flex;
+        .sidebar-toggle{
+            display: block;
+        }
+    }
+}

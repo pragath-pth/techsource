@@ -1,0 +1,27 @@
+<div class="aside">
+    <div class="toggle-btn" (click)="toggleSideBar()">
+      <span [inlineSVG]="'../../../../assets/media/icons/close.svg'" class="close-icon"></span>
+    </div>
+    <div class="navigation">
+        <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active-tab" [routerLinkActiveOptions]="{exact:true}" routerLink="/home">
+                <span [inlineSVG]="'../../../../assets/media/icons/abs021.svg'" class="link-icon"></span> Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active-tab" [routerLinkActiveOptions]="{exact:true}" routerLink="/windows">
+                <span [inlineSVG]="'../../../../assets/media/icons/abs021.svg'" class="link-icon"></span> Windows
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active-tab" [routerLinkActiveOptions]="{exact:true}" routerLink="/android">
+                <span [inlineSVG]="'../../../../assets/media/icons/abs021.svg'" class="link-icon"></span> Android</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active-tab" [routerLinkActiveOptions]="{exact:true}" routerLink="/">
+                  <span [inlineSVG]="'../../../../assets/media/icons/abs021.svg'" class="link-icon"></span> About</a>
+            </li>
+        </ul>
+    </div>
+</div>

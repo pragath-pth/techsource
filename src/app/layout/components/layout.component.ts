@@ -20,14 +20,14 @@ export class LayoutComponent implements OnInit {
 
   toggleSideBar() {
     this.subscription = this.layoutService.sideBarObservable$.subscribe((res) => {
-      console.log(res);
+      // console.log(res);
       this.isSidebarCollapsed = res;
     });
   }
 
   onClickedOutside(e: Event) {
     // console.log('Clicked outside:', e);
-    console.log(this.isSidebarCollapsed);
+    // console.log(this.isSidebarCollapsed);
     if(this.isSidebarCollapsed === false){
       this.isSidebarCollapsed = true;
     }

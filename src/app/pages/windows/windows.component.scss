@@ -5,7 +5,9 @@
     position: relative;
     .content{
         width: calc(100vw - 350px);
-        background-color: #1E1E2D;
+        // background-color: #1E1E2D;
+        // background: radial-gradient(circle at center, #2d1548, #1e1e2d);
+        background: radial-gradient(circle at center, #161e3e, #1c1c2c);
         position: absolute;
         top: 80px;
         left: 300px;
@@ -39,8 +41,11 @@
                 // background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(249,249,249,1) 0%, rgba(241,241,241,1) 50%, rgba(231,231,231,1) 100%);
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
                 color: #d7d7d7;
-                background: linear-gradient(180deg, #570080 0%, #460066 100%);
+                // background: linear-gradient(180deg, #570080 0%, #460066 100%);
                 // background: #2b2b40;
+                background: rgb(118 118 118 / 11%);
+                /* box-shadow: 0 4px 30px rgb(0 0 0 / 10%); */
+                backdrop-filter: blur(5.7px);
                 .item-head{
                     display: flex;
                     justify-content: space-between;

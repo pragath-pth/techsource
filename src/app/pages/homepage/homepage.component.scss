@@ -5,7 +5,8 @@
     position: relative;
     .content{
         width: calc(100vw - 350px);
-        background-color: #1E1E2D;
+        // background-color: #1E1E2D;
+        background: radial-gradient(circle at center, #161e3e, #1c1c2c);
         position: absolute;
         top: 80px;
         left: 300px;

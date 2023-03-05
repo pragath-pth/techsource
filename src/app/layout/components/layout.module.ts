@@ -30,6 +30,11 @@ const routes: Routes = [
           import('../../pages/android/android.module').then((m) => m.AndroidModule),
       },
       {
+        path: 'about',
+        loadChildren: () =>
+          import('../../pages/about/about.module').then((m) => m.AboutModule),
+      },
+      {
         path: '',
         redirectTo: '/home',
         pathMatch: 'full',

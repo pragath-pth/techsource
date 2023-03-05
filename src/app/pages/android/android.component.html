@@ -4,7 +4,8 @@
             <ng-container [ngbNavItem]="1">
                 <a ngbNavLink>Necessary Apps</a>
                 <ng-template ngbNavContent>
-                    <div class="row">
+                    <div class="nav-content">
+                      <div class="row" *ngIf="appList?.length > 0 && !appListLoader">
                         <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 my-3" *ngFor="let app of appList; let i = index;">
                           <div class="item fast-transition" (click)="goToLink(app.appLink)">
                             <div class="item-head">
@@ -16,39 +17,57 @@
                             </div>
                           </div>
                         </div>
+                      </div>
+                      <h5 class="no-data" *ngIf="appList?.length === 0 && !appListLoader">
+                        No Data Available
+                      </h5>
                     </div>
                 </ng-template>
             </ng-container>
             <ng-container [ngbNavItem]="2">
                 <a ngbNavLink>Optional Apps</a>
                 <ng-template ngbNavContent>
-                  <div class="row">
-                    <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 my-3" *ngFor="let app of appList; let i = index;">
-                      <div class="item fast-transition" (click)="goToLink(app.appLink)">
-                        <div class="item-head">
-                          <h5 class="mb-0">{{app.appName}}</h5>
-                          <i class="fas fa-tombstone-alt"></i>
-                        </div>
-                        <div class="item-data">
-                          <pre class="mb-2">{{app.version}}</pre>
+                  <div class="nav-content">
+                    <div class="row" *ngIf="appList?.length > 0 && !appListLoader">
+                      <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 my-3" *ngFor="let app of appList; let i = index;">
+                        <div class="item fast-transition" (click)="goToLink(app.appLink)">
+                          <div class="item-head">
+                            <h5 class="mb-0">{{app.appName}}</h5>
+                            <i class="fas fa-tombstone-alt"></i>
+                          </div>
+                          <div class="item-data">
+                            <pre class="mb-2">{{app.version}}</pre>
+                          </div>
                         </div>
                       </div>
                     </div>
-                </div>
+                    <h5 class="no-data" *ngIf="appList?.length === 0 && !appListLoader">
+                      No Data Available
+                    </h5>
+                  </div>
                 </ng-template>
             </ng-container>
-            <ng-container [ngbNavItem]="3" [disabled]="true">
-                <a ngbNavLink>Coming Soon</a>
+            <ng-container [ngbNavItem]="3" [disabled]="false">
+                <a ngbNavLink>All Apps</a>
                 <ng-template ngbNavContent>
-                    <p>
-                        Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi.
-                        Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
-                        Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna,
-                        egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec
-                        tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et
-                        magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget
-                        neque. Phasellus nec tortor vel tellus pulvinar feugiat.
-                    </p>
+                  <div class="nav-content">
+                    <div class="row" *ngIf="appList?.length > 0 && !appListLoader">
+                      <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 my-3" *ngFor="let app of appList; let i = index;">
+                        <div class="item fast-transition" (click)="goToLink(app.appLink)">
+                          <div class="item-head">
+                            <h5 class="mb-0">{{app.appName}}</h5>
+                            <i class="fas fa-tombstone-alt"></i>
+                          </div>
+                          <div class="item-data">
+                            <pre class="mb-2">{{app.version}}</pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <h5 class="no-data" *ngIf="appList?.length === 0 && !appListLoader">
+                      No Data Available
+                    </h5>
+                  </div>
                 </ng-template>
             </ng-container>
         </nav>

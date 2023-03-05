@@ -17,6 +17,7 @@ export class WindowsComponent implements OnInit {
     {appName: 'KM Player', appVersion: '4.2.2.71', appDescription: 'Player', appLink: 'https://dn.kmplayer.com/Dn/kmp32/2211/KMPlayer_4.2.2.71.exe'}
   ]
   appList:any = [];
+  appListLoader:boolean = true;
 
   constructor(private windowsService: WindowsService) { }
 
@@ -26,6 +27,7 @@ export class WindowsComponent implements OnInit {
 
   loadAppList(){
     this.appList = [];
+    this.appListLoader = true;
     let obj: any = {
       platform: "Windows"
     };
@@ -39,9 +41,11 @@ export class WindowsComponent implements OnInit {
       next: res => {
         console.log(res);
         this.appList = res.appData;
+        this.appListLoader = false;
       },
       error: error => {
         console.log(error);
+        this.appListLoader = false;
       }
     })
   }

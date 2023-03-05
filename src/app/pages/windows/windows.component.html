@@ -4,54 +4,69 @@
             <ng-container [ngbNavItem]="1">
                 <a ngbNavLink>Necessary Apps</a>
                 <ng-template ngbNavContent>
+                  <div class="nav-content">
                     <div class="row">
-                        <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 my-3" *ngFor="let app of appList; let i = index;">
-                          <div class="item fast-transition" (click)="goToLink(app.appLink)">
-                            <div class="item-head">
-                              <h5 class="mb-0">{{app.appName}}</h5>
-                              <i class="fas fa-tombstone-alt"></i>
-                            </div>
-                            <div class="item-data">
-                              <pre class="mb-2">{{app.version}}</pre>
-                            </div>
+                      <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 my-3" *ngFor="let app of appList; let i = index;">
+                        <div class="item fast-transition" (click)="goToLink(app.appLink)">
+                          <div class="item-head">
+                            <h5 class="mb-0">{{app.appName}}</h5>
+                            <i class="fas fa-tombstone-alt"></i>
+                          </div>
+                          <div class="item-data">
+                            <pre class="mb-2">{{app.version}}</pre>
                           </div>
                         </div>
+                      </div>
                     </div>
+                    <h5 class="no-data" *ngIf="appList?.length === 0 && !appListLoader">
+                      No Data Available
+                    </h5>
+                  </div>
                 </ng-template>
             </ng-container>
             <ng-container [ngbNavItem]="2">
                 <a ngbNavLink>Optional Apps</a>
                 <ng-template ngbNavContent>
-                  <div class="row">
-                    <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 my-3" *ngFor="let app of appList; let i = index;">
-                      <div class="item fast-transition" (click)="goToLink(app.appLink)">
-                        <div class="item-head">
-                          <h5 class="mb-0">{{app.appName}}</h5>
-                          <i class="fas fa-tombstone-alt"></i>
-                        </div>
-                        <div class="item-data">
-                          <pre class="mb-2">{{app.version}}</pre>
+                  <div class="nav-content">
+                    <div class="row">
+                      <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 my-3" *ngFor="let app of appList; let i = index;">
+                        <div class="item fast-transition" (click)="goToLink(app.appLink)">
+                          <div class="item-head">
+                            <h5 class="mb-0">{{app.appName}}</h5>
+                            <i class="fas fa-tombstone-alt"></i>
+                          </div>
+                          <div class="item-data">
+                            <pre class="mb-2">{{app.version}}</pre>
+                          </div>
                         </div>
                       </div>
                     </div>
-                </div>
+                    <h5 class="no-data" *ngIf="appList?.length === 0 && !appListLoader">
+                      No Data Available
+                    </h5>
+                  </div>
                 </ng-template>
             </ng-container>
             <ng-container [ngbNavItem]="3" [disabled]="false">
                 <a ngbNavLink>All Apps</a>
                 <ng-template ngbNavContent>
-                  <div class="row">
-                    <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 my-3" *ngFor="let app of appList; let i = index;">
-                      <div class="item fast-transition" (click)="goToLink(app.appLink)">
-                        <div class="item-head">
-                          <h5 class="mb-0">{{app.appName}}</h5>
-                          <i class="fas fa-tombstone-alt"></i>
-                        </div>
-                        <div class="item-data">
-                          <pre class="mb-2">{{app.version}}</pre>
+                  <div class="nav-content">
+                    <div class="row">
+                      <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 my-3" *ngFor="let app of appList; let i = index;">
+                        <div class="item fast-transition" (click)="goToLink(app.appLink)">
+                          <div class="item-head">
+                            <h5 class="mb-0">{{app.appName}}</h5>
+                            <i class="fas fa-tombstone-alt"></i>
+                          </div>
+                          <div class="item-data">
+                            <pre class="mb-2">{{app.version}}</pre>
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <h5 class="no-data" *ngIf="appList?.length === 0 && !appListLoader">
+                      No Data Available
+                    </h5>
                   </div>
                 </ng-template>
             </ng-container>

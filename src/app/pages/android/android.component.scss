@@ -88,10 +88,15 @@
             }
         }
     }
+    .no-data{
+        text-align: center;
+        color: white;
+        margin: 20px;
+    }
 }
 
 @media screen and (max-width: 992px){
-    .windows{
+    .android{
         padding-left: unset;
         .content{
             position: fixed;

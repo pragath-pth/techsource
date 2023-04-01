@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { WindowsComponent } from './windows.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WindowsService } from './windows.service';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 
 const routes: Routes = [
   {
@@ -19,10 +21,13 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    NgbModule
+    NgbModule,
+    TableModule,
+    ButtonModule
   ],
   providers: [
-    WindowsService
+    WindowsService,
+    DatePipe
   ]
 })
 export class WindowsModule { }

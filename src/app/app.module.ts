@@ -8,6 +8,10 @@ import { LayoutModule } from './layout/components/layout.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { InterceptService } from './shared/services/interceptor/intercept.service';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { InterceptService } from './shared/services/interceptor/intercept.servic
     NgbModule,
     HttpClientModule,
     LayoutModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [
     InterceptService,

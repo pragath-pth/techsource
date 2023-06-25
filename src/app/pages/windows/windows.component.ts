@@ -37,17 +37,18 @@ export class WindowsComponent implements OnInit {
     } else if(this.tabId === 2){
       obj['choice'] = 'Optional'
     }
-    this.windowsService.getAppList(obj).subscribe({
+    this.windowsService.getSelectedAppData(obj).subscribe({
       next: res => {
         console.log(res);
-        this.appList = res.appData;
+        this.appList = res;
         this.appListLoader = false;
       },
       error: error => {
         console.log(error);
         this.appListLoader = false;
       }
-    })
+    }
+    );
   }
 
   onNavChange(ev:any){

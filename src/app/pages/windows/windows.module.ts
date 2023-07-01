@@ -6,6 +6,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WindowsService } from './windows.service';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { DialogModule } from 'primeng/dialog';
 
 const routes: Routes = [
   {
@@ -23,7 +25,9 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     NgbModule,
     TableModule,
-    ButtonModule
+    ButtonModule,
+    NgxSpinnerModule,
+    DialogModule
   ],
   providers: [
     WindowsService,

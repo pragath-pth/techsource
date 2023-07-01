@@ -17,7 +17,7 @@ export class InterceptService implements HttpInterceptor {
   ): Observable <HttpEvent<any>>{
     const endPoint = request.url.split('/')[request.url.split('/').length - 1]
     this.service_count++;
-    this.getUrl().includes(endPoint) ? '': this.spinner.show();
+    // this.getUrl().includes(endPoint) ? '': this.spinner.show();
     request = request.clone({
       // withCredentials: true
     })
@@ -26,7 +26,7 @@ export class InterceptService implements HttpInterceptor {
         this.service_count--;
 
         if(this. service_count === 0){
-          this.spinner.hide();
+          // this.spinner.hide();
         }
       })
     )

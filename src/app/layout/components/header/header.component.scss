@@ -6,6 +6,7 @@
     display: flex;
     align-items: center;
     padding: 10px;
+    z-index: 10;
     .sidebar-toggle{
         display: none;
         .menu-icon{
@@ -13,6 +14,17 @@
         }
         .menu-icon:hover{
             color: #009EF7;
+        }
+    }
+    .logo-container{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        .logo{
+            ::ng-deep svg{
+                width: 145px;
+                fill: #675cd8;
+            }
         }
     }
 }

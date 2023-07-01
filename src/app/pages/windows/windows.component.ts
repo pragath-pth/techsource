@@ -1,10 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, transition, style, animate } from '@angular/animations';
 import { WindowsService } from './windows.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-windows',
   templateUrl: './windows.component.html',
-  styleUrls: ['./windows.component.scss']
+  styleUrls: ['./windows.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('500ms', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [
+        animate('500ms', style({ opacity: 0 })),
+      ]),
+    ]),
+  ],
 })
 export class WindowsComponent implements OnInit {
 
@@ -18,20 +31,23 @@ export class WindowsComponent implements OnInit {
   ]
   appList:any = [];
   appListLoader:boolean = true;
+  visible:boolean = false;
+  appDetailedData: any = [];
 
-  constructor(private windowsService: WindowsService) { }
+  constructor(private windowsService: WindowsService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.loadAppList();
   }
 
   loadAppList(){
+    this.spinner.show('appSpinner');
     this.appList = [];
     this.appListLoader = true;
     let obj: any = {
       platform: "Windows"
     };
-    console.log(this.tabId);
+    // console.log(this.tabId);
     if(this.tabId === 1){
       obj['choice'] = 'Necessary'
     } else if(this.tabId === 2){
@@ -39,12 +55,16 @@ export class WindowsComponent implements OnInit {
     }
     this.windowsService.getSelectedAppData(obj).subscribe({
       next: res => {
-        console.log(res);
-        this.appList = res;
-        this.appListLoader = false;
+        // console.log(res);
+        setTimeout(() => {
+          this.appList = res.filter((app: any) => app.hidden === false);
+          this.appListLoader = false;
+          this.spinner.hide('appSpinner');
+        }, 300);
       },
       error: error => {
         console.log(error);
+        this.spinner.hide('appSpinner');
         this.appListLoader = false;
       }
     }
@@ -59,6 +79,12 @@ export class WindowsComponent implements OnInit {
 
   goToLink(url: string){
     window.open(url, "_blank");
+  }
+
+  showAppDetails(appData: any){
+    this.visible = true;
+    this.appDetailedData = [];
+    this.appDetailedData = appData;
   }
 
 }

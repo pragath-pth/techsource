@@ -33,6 +33,14 @@ export class WindowsComponent implements OnInit {
   appListLoader:boolean = true;
   visible:boolean = false;
   appDetailedData: any = [];
+  // choices: any = [
+  //   {name: 'Necessary', value: 'necessary'},
+  //   {name: 'Optional', value: 'optional'},
+  // ]
+  choices: any = [
+    'Necessary',
+    'Optional'
+  ]
 
   constructor(private windowsService: WindowsService, private spinner: NgxSpinnerService) { }
 

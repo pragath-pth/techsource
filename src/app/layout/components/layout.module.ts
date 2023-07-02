@@ -30,6 +30,11 @@ const routes: Routes = [
           import('../../pages/android/android.module').then((m) => m.AndroidModule),
       },
       {
+        path: 'links',
+        loadChildren: () =>
+          import('../../pages/links/links.module').then((m) => m.LinksModule),
+      },
+      {
         path: 'about',
         loadChildren: () =>
           import('../../pages/about/about.module').then((m) => m.AboutModule),

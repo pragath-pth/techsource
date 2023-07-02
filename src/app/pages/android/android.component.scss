@@ -19,14 +19,22 @@
         overflow: auto;
         padding: 25px 45px;
         .nav-tabs{
-            border-color: #6c6c6c;
-            ::ng-deep .nav-link.active{
-                background: none;
-                color: #ffffff;
-                border-color: #92929f #92929f #1e1e2d;
-            }
+            border: none;
             ::ng-deep .nav-link{
-                color: #92929f;
+                color: #63638f;
+                background: none;
+                margin: 0px 5px;
+                border-radius: 0px;
+                border: 2px solid #2b2c45;
+                font-weight: 700;
+            }
+            ::ng-deep .nav-link.active, ::ng-deep .nav-link:hover{
+                background: none;
+                color: #a8a0ff;
+                margin: 0px 5px;
+                border-radius: 0px;
+                border: 2px solid #3f4165;
+                font-weight: 700;
             }
         }
         .row{
@@ -86,6 +94,13 @@
             .fast-transition:hover::before{
                 opacity: 1;
             }
+        }
+        .seperator{
+            margin: 0.5rem 5px;
+            color: #2b2c45;;
+            border: 0;
+            border-top: 3px solid;
+            opacity: 1;
         }
     }
     .no-data{

@@ -7,7 +7,7 @@
           <ng-template ngbNavContent>
             <div class="nav-content">
               <div class="row">
-                <div [@fadeInOut] class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 my-3"
+                <div [@fadeInOut] class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-2 mb-3"
                   *ngFor="let app of appList; let i = index;">
                   <div class="item" (click)="showAppDetails(app)">
                     <div class="item-left">
@@ -51,7 +51,7 @@
           <ng-template ngbNavContent>
             <div class="nav-content">
               <div class="row">
-                <div [@fadeInOut] class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 my-3"
+                <div [@fadeInOut] class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-2 mb-3"
                   *ngFor="let app of appList; let i = index;">
                   <div class="item" (click)="showAppDetails(app)">
                     <div class="item-left">
@@ -110,14 +110,22 @@
                                   </div> -->
               <div [@fadeInOut] class="short-desc">
                 <p-table class="app-data" [value]="appList" [scrollable]="true" scrollHeight="475px"
-                  styleClass="p-datatable-gridlines" [resizableColumns]="true">
+                  styleClass="p-datatable-gridlines" [resizableColumns]="true" [globalFilterFields]="['choice']">
                   <ng-template pTemplate="header">
                     <tr>
                       <th pSortableColumn="appName" pResizableColumn>App Name <p-sortIcon field="appName"></p-sortIcon>
                       </th>
                       <th pResizableColumn>Version</th>
                       <!-- <th pSortableColumn="platform" pResizableColumn>Platform <p-sortIcon field="platform"></p-sortIcon></th> -->
-                      <th pSortableColumn="choice" pResizableColumn>Choice <p-sortIcon field="choice"></p-sortIcon></th>
+                      <th pSortableColumn="choice" pResizableColumn>Choice 
+                        <p-sortIcon field="choice"></p-sortIcon>
+                        <p-columnFilter field="choice" matchMode="equals" display="menu">
+                          <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                              <p-dropdown [ngModel]="value" [options]="choices" (onChange)="filter($event.value)" placeholder="Any">
+                              </p-dropdown>
+                          </ng-template>
+                      </p-columnFilter>
+                      </th>
                       <th pSortableColumn="updatedAt" pResizableColumn>Updated On <p-sortIcon
                           field="updatedAt"></p-sortIcon>
                       </th>
@@ -146,9 +154,11 @@
           </ng-template>
         </ng-container>
       </nav>
-      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+      <hr class="seperator">
+      <div [ngbNavOutlet]="nav" class=""></div>
       <div class="content-bottom" *ngIf="!appListLoader && activeId !== 3">
-        <h6>The software links provided here are for educational purposes only. It is not intended for commercial use. </h6>
+        <h6>The software links provided here marked with red and yellow dot are for educational purposes only. It is not intended for commercial use. We
+          encourage users to obtain proper licenses or use legal alternatives for their software needs.</h6>
       </div>
     </div>
   </div>
@@ -184,6 +194,17 @@
     <div class="tag-container">
       <p *ngFor="let tag of appDetailedData.tags; let i = index;">
         <span>{{tag}}</span>
+      </p>
+    </div>
+    <div class="disclaimer-container" *ngIf="appDetailedData.exclusive">
+      <h6>Disclaimer :</h6>
+      <p>
+        This software is provided for educational purposes only. The software listed here may include cracked versions of shareware, which means they have
+        been modified to bypass licensing or activation restrictions. This disclaimer is not endorsing or promoting the use of cracked software, as it is illegal and
+        against the terms of use set by software developers. The purpose of including these software titles is solely for educational exploration and understanding of
+        software functionalities. Users are strongly advised to respect copyright laws and abide by software licensing agreements. The use of cracked software is
+        unlawful and may result in legal consequences. We disclaim any responsibility for the usage, installation, or consequences of using cracked software, and we
+        encourage users to obtain proper licenses or use legal alternatives for their software needs.
       </p>
     </div>
   </div>

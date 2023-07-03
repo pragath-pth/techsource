@@ -8,7 +8,7 @@ import { AppData } from 'src/app/models/app-data.model';
 })
 export class AndroidService {
 
-  private dbPath = '/app-list';
+  private dbPath = '/android-app-list';
 
   appDataList: AngularFireList<AppData>;
 
@@ -53,24 +53,4 @@ export class AndroidService {
       })
     );
   }
-
-  // getSelectedAppData(obj: any): Observable<AppData[]> {
-  //   const queryFn: QueryFn = (ref) => {
-  //     let query: firebase.default.database.Query = ref;
-
-  //     if (obj.platform || obj.choice) {
-  //       // if (obj.platform) {
-  //       //   query = query.orderByChild('platform').equalTo(obj.platform);
-  //       // }
-
-  //       if (obj.choice) {
-  //         query = query.orderByChild('choice').equalTo(obj.choice);
-  //       }
-  //     }
-
-  //     return query;
-  //   };
-
-  //   return this.db.list(this.dbPath, queryFn).valueChanges() as Observable<AppData[]>;
-  // }
 }

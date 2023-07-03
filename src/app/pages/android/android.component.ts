@@ -1,10 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { AndroidService } from './android.service';
-
+import { trigger, transition, style, animate } from '@angular/animations';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-android',
   templateUrl: './android.component.html',
-  styleUrls: ['./android.component.scss']
+  styleUrls: ['./android.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('500ms', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [
+        animate('500ms', style({ opacity: 0 })),
+      ]),
+    ]),
+  ],
 })
 export class AndroidComponent implements OnInit {
 
@@ -18,20 +30,31 @@ export class AndroidComponent implements OnInit {
   ]
   appList:any = [];
   appListLoader:boolean = true;
+  visible:boolean = false;
+  appDetailedData: any = [];
+  // choices: any = [
+  //   {name: 'Necessary', value: 'necessary'},
+  //   {name: 'Optional', value: 'optional'},
+  // ]
+  choices: any = [
+    'Necessary',
+    'Optional'
+  ]
 
-  constructor(private androidService: AndroidService) { }
+  constructor(private androidService: AndroidService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.loadAppList();
   }
 
   loadAppList(){
+    this.spinner.show('appSpinner');
     this.appList = [];
     this.appListLoader = true;
     let obj: any = {
       platform: "Android"
     };
-    console.log(this.tabId);
+    // console.log(this.tabId);
     if(this.tabId === 1){
       obj['choice'] = 'Necessary'
     } else if(this.tabId === 2){
@@ -40,11 +63,15 @@ export class AndroidComponent implements OnInit {
     this.androidService.getSelectedAppData(obj).subscribe({
       next: res => {
         console.log(res);
-        this.appList = res;
-        this.appListLoader = false;
+        setTimeout(() => {
+          this.appList = res.filter((app: any) => app.hidden === false);
+          this.appListLoader = false;
+          this.spinner.hide('appSpinner');
+        }, 300);
       },
       error: error => {
         console.log(error);
+        this.spinner.hide('appSpinner');
         this.appListLoader = false;
       }
     }
@@ -59,6 +86,12 @@ export class AndroidComponent implements OnInit {
 
   goToLink(url: string){
     window.open(url, "_blank");
+  }
+
+  showAppDetails(appData: any){
+    this.visible = true;
+    this.appDetailedData = [];
+    this.appDetailedData = appData;
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { WindowsService } from './windows.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastService } from 'src/app/shared/services/toast/toast.service';
 
 @Component({
   selector: 'app-windows',
@@ -42,7 +43,7 @@ export class WindowsComponent implements OnInit {
     'Optional'
   ]
 
-  constructor(private windowsService: WindowsService, private spinner: NgxSpinnerService) { }
+  constructor(private windowsService: WindowsService, private spinner: NgxSpinnerService, private toastService: ToastService) { }
 
   ngOnInit(): void {
     this.loadAppList();
@@ -85,8 +86,14 @@ export class WindowsComponent implements OnInit {
     this.loadAppList();
   }
 
-  goToLink(url: string){
+  goToLink(ev: any, url: string){
+    ev.stopPropagation();
     window.open(url, "_blank");
+  }
+
+  copyLink(ev: any){
+    ev.stopPropagation();
+    this.toastService.showSuccessToastr('Link Copied !');
   }
 
   showAppDetails(appData: any){

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AndroidService } from './android.service';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastService } from 'src/app/shared/services/toast/toast.service';
 @Component({
   selector: 'app-android',
   templateUrl: './android.component.html',
@@ -41,7 +42,7 @@ export class AndroidComponent implements OnInit {
     'Optional'
   ]
 
-  constructor(private androidService: AndroidService, private spinner: NgxSpinnerService) { }
+  constructor(private androidService: AndroidService, private spinner: NgxSpinnerService, private toastService: ToastService) { }
 
   ngOnInit(): void {
     this.loadAppList();
@@ -84,8 +85,14 @@ export class AndroidComponent implements OnInit {
     this.loadAppList();
   }
 
-  goToLink(url: string){
+  goToLink(ev: any, url: string){
+    ev.stopPropagation();
     window.open(url, "_blank");
+  }
+
+  copyLink(ev: any){
+    ev.stopPropagation();
+    this.toastService.showSuccessToastr('Link Copied !');
   }
 
   showAppDetails(appData: any){

@@ -77,10 +77,10 @@
                 backdrop-filter: blur(5.7px);
                 padding: 10px;
                 .item-left{
-                    flex: 0 0 80%;
+                    flex: 0 0 70%;
                 }
                 .item-middle{
-                    flex: 0 0 10%;
+                    flex: 0 0 7%;
                     span{
                         cursor: pointer;
                     }
@@ -98,8 +98,11 @@
                     }
                 }
                 .item-right{
-                    flex: 0 0 10%;
-                    margin-right: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    flex: 0 0 20%;
+                    // margin-right: 8px;
                     i{
                         cursor: pointer;
                         padding: 5px;
@@ -113,7 +116,7 @@
                     }
                       
                     .icon-container:hover i {
-                        animation: bellRing 1.5s both;
+                        // animation: bellRing 1.5s both;
                       }
                       
                       @keyframes bellRing {
@@ -354,7 +357,7 @@
         .content-window{
             .content-container{
                 .row{
-                    max-height: 65vh;
+                    max-height: 60vh;
                 }
             }
             

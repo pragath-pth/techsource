@@ -7,7 +7,7 @@
           <ng-template ngbNavContent>
             <div class="nav-content">
               <div class="row">
-                <div [@fadeInOut] class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-2 mb-3"
+                <div [@fadeInOut] class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-12 mt-2 mb-3"
                   *ngFor="let app of appList; let i = index;">
                   <div class="item" (click)="showAppDetails(app)">
                     <div class="item-left">
@@ -29,7 +29,10 @@
                     </div>
                     <div class="item-right">
                       <div class="icon-container">
-                        <i class="fas fa-download" (click)="goToLink(app.appLink)"></i>
+                        <i class="fas fa-download" title="Download Now" (click)="goToLink($event, app.appLink)"></i>
+                      </div>
+                      <div class="icon-container">
+                        <i class="fas fa-paperclip" title="Copy Link" ngxClipboard [cbContent]="app.appLink" (click)="copyLink($event)"></i>
                       </div>
                     </div>
                   </div>
@@ -51,7 +54,7 @@
           <ng-template ngbNavContent>
             <div class="nav-content">
               <div class="row">
-                <div [@fadeInOut] class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-2 mb-3"
+                <div [@fadeInOut] class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-12 mt-2 mb-3"
                   *ngFor="let app of appList; let i = index;">
                   <div class="item" (click)="showAppDetails(app)">
                     <div class="item-left">
@@ -74,7 +77,10 @@
                     </div>
                     <div class="item-right">
                       <div class="icon-container">
-                        <i class="fas fa-download" (click)="goToLink(app.appLink)"></i>
+                        <i class="fas fa-download" title="Download Now" (click)="goToLink($event, app.appLink)"></i>
+                      </div>
+                      <div class="icon-container">
+                        <i class="fas fa-paperclip" title="Copy Link" ngxClipboard [cbContent]="app.appLink" (click)="copyLink($event)"></i>
                       </div>
                     </div>
                   </div>
@@ -96,7 +102,7 @@
           <ng-template ngbNavContent>
             <div class="nav-content">
               <!-- <div class="row">
-                                    <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 my-3" *ngFor="let app of appList; let i = index;">
+                                    <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-12 my-3" *ngFor="let app of appList; let i = index;">
                                       <div class="item fast-transition" (click)="goToLink(app.appLink)">
                                         <div class="item-head">
                                           <h5 class="mb-0">{{app.appName}}</h5>
@@ -141,7 +147,7 @@
                       <td>{{app.choice}}</td>
                       <td>{{app.updatedAt | date:'medium'}}</td>
                       <td class="action-btn">
-                        <i class="fa-solid fa-link" (click)="goToLink(app.appLink)"></i>
+                        <i class="fa-solid fa-link" (click)="goToLink($event, app.appLink)"></i>
                       </td>
                     </tr>
                   </ng-template>
@@ -178,7 +184,7 @@
       </div>
     </div>
     <div class="ad-head-right">
-      <button (click)="goToLink(appDetailedData.appLink)">
+      <button (click)="goToLink($event, appDetailedData.appLink)">
         <span>Download</span>
         <div class="top"></div>
         <div class="left"></div>

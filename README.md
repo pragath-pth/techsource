@@ -1,27 +1,16 @@
-# TechSource
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+# Techsource
 
-## Development server
+A Tech website built from scratch using Angular 14 and upgraded to Angular 16, made responsive and hosted on Github Pages. Feel free to check it out from the link below.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-123?style=for-the-badge&logo=ko-fi&logoColor=white)](https://pragathpth.me/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Tech Stack
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+[![Angular](https://img.shields.io/badge/Angular-16.2.12-red)](https://angular.io/)
+[![NG Bootstrap](https://img.shields.io/badge/ng--bootstrap-15.1.2-blue)](https://ng-bootstrap.github.io/#/home)
+[![PrimeNG](https://img.shields.io/badge/PrimeNG-16.4.2-critical)](https://www.primefaces.org/primeng/)
+[![Font Awesome](https://img.shields.io/badge/fontawesome-6.4.2-orange)](https://momentjs.com/)

@@ -115,8 +115,8 @@
                                     </div>
                                   </div> -->
               <div [@fadeInOut] class="short-desc">
-                <p-table class="app-data" [value]="appList" [scrollable]="true" scrollHeight="475px"
-                  styleClass="p-datatable-gridlines" [resizableColumns]="true" [globalFilterFields]="['choice']">
+                <p-table class="app-data" [value]="appList" [scrollable]="true" scrollHeight="calc(100vh - 260px)"
+                  styleClass="p-datatable-gridlines all-list-table" [resizableColumns]="true" [globalFilterFields]="['choice']">
                   <ng-template pTemplate="header">
                     <tr>
                       <th pSortableColumn="appName" pResizableColumn>App Name <p-sortIcon field="appName"></p-sortIcon>

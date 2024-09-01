@@ -172,6 +172,13 @@
                         display: flex;
                         justify-content: space-around;
                     }
+                    ::ng-deep .all-list-table{
+                        tr{
+                            th, td {
+                                border: 1px solid #3f4165b5;
+                            }
+                        }
+                    }
                 }
             }
         }

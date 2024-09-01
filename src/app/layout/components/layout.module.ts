@@ -7,7 +7,7 @@ import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule, Routes } from '@angular/router';
 import { InlineSVGModule } from 'ng-inline-svg-2';
-import { NgClickOutsideDirective } from 'ng-click-outside2';
+import { NgClickOutsideDirective, NgClickOutsideExcludeDirective } from 'ng-click-outside2';
 
 const routes: Routes = [
   {
@@ -65,6 +65,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     InlineSVGModule.forRoot(),
     NgClickOutsideDirective,
+    NgClickOutsideExcludeDirective
   ],
   exports: [RouterModule]
 })

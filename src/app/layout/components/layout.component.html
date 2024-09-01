@@ -1,6 +1,6 @@
 <div class="layout">
     <div class="sidebar" [ngClass]="isSidebarCollapsed ? 'sidebar-collapsed' : ''">
-        <app-aside (clickOutside)="onClickedOutside($event);" [exclude]="'.sidebar-toggle'"></app-aside>
+        <app-aside (clickOutside)="onClickedOutside($event);" [clickOutsideExclude]="'.sidebar-toggle'"></app-aside>
     </div>
     <div class="content">
         <app-header></app-header>
